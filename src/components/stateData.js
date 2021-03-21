@@ -1,6 +1,6 @@
-import React, { component } from 'react'
+
 import stateData from './stateData.json'
-import Map from './Map'
+
 
 
 
@@ -29,16 +29,16 @@ console.log(uniqueStates)
 
 // create function that takes in an array of objects 
 
+// 0-250
+const rangeOne = []
+// 251-500
+const rangeTwo =[]
+// 501-1000
+const rangeThree =[]
+// 1000+
+const rangeFour =[]
 function sortStates(param) {
     // create if statement that checks if vists are 0-250,251-500,501-1000,1001+
-    // 0-250
-    const rangeOne = []
-    // 251-500
-    const rangeTwo =[]
-    // 501-1000
-    const rangeThree =[]
-    // 1000+
-    const rangeFour =[]
     param.forEach(el => {
         // loops through array, if it falls between 0-250 gets pushed int0 array
         if (el.visits <= 250) {

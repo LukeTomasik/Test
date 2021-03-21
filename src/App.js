@@ -1,7 +1,7 @@
 import './App.css';
-import Map from './components/Map'
+import Map2 from './components/Map2'
 import Logo from './components/Logo'
-import stateData from './components/stateData'
+
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
       <Logo />
   
 
-      <Map color='#0D7EF9'/>
+      <Map2 />
       
     
     </div>
