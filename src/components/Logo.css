@@ -1,0 +1,13 @@
+.logoTitle {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    border-bottom: 2px solid black;
+    /* needs a border-bottom shadow not line
+    */
+}
+.logoTitle svg {
+    margin-left: 3%;
+    height: 100%;
+    width: 15%;
+}
