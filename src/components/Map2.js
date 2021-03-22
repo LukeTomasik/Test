@@ -4,8 +4,8 @@ import stateData from './stateData.json'
 
 
 
-console.log(stateData)
-console.log(stateData[0].id)
+// console.log(stateData)
+// console.log(stateData[0].id)
 const usStates = ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY',
 'LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA',
 'RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY']
@@ -25,10 +25,11 @@ let uniqueStates = []
 for (let state of usStates) {
     uniqueStates.push(states.find(element => element.id.toUpperCase() == state))
 }
-console.log(uniqueStates)
+// console.log(uniqueStates)
 
 // create function that takes in an array of objects 
 
+// 0-250
 const rangeOne = []
 // 251-500
 const rangeTwo =[]
@@ -232,22 +233,24 @@ const pathData = [
 <path className="dc" d="m 803.5,252 -2.6,-1.8 -1,1.7 .5,.4 .4,.1 .6,.5 .3,.7 -.1,.5 .2,.5 z">
 <title>District of Columbia</title></path> 
 ]
-console.log(pathData)
-console.log(rangeOne)
-console.log(rangeTwo)
-console.log(rangeThree)
-console.log(rangeFour)
+// console.log(pathData)
+// console.log(rangeOne)
+// console.log(rangeTwo)
+// console.log(rangeThree)
+// console.log(rangeFour)
 
 
 
-  function displayStates(data) {
-    const states = data.map((el,key) => {
-    return <path fill={'#aad2fd'}  key={key} className={el.props.className} d={el.props.d}><title>{el.props.children.props.children}</title></path>
-    })
-  return states
-  }
-  console.log(displayStates(pathData))
-  console.log(pathData)
+function displayStates(data) {
+  const states = data.map((el,key) => {
+  return <path fill={'#aad2fd'}  key={key} className={el.props.className} d={el.props.d}><title>{el.props.children.props.children}</title></path>
+  })
+return states
+}
+
+const statesMap = displayStates(pathData)
+  console.log(statesMap)
+  // console.log(pathData)
 
   function renderTest(e) {
     console.log(e.target.value)
@@ -256,19 +259,26 @@ console.log(rangeFour)
 
 function Map() {
   
- const [statesArr,setStateArr] = useState(displayStates(pathData))
- const [applyColor,setApplyColor]=useState('')
+const [statesArr,useStatesArr] = useState(statesMap)
+
+  function changeColor(){
+    console.log(statesArr)
+  }
+
 console.log(displayStates(pathData))
 
- const ChangeColor=(e) => {
+ const SelectStates=(e) => {
    if(e.target.value ==='firstStates') {
     renderTest(e)
+   changeColor()
    } else if(e.target.value === 'secondStates') {
     renderTest(e)
    } else if (e.target.value === 'thirdStates') {
     renderTest(e)
-   } else {
+   } else if (e.target.value === 'fourthStates') {
     renderTest(e)
+   } else {
+     displayStates(pathData)
    }
   
   
@@ -279,13 +289,12 @@ console.log(displayStates(pathData))
 
  <div className='usStatesContainer'>
    <div>
-     <select onChange={ChangeColor} >
+     <select onChange={SelectStates} >
        <option value='firstStates' >0-250</option>
        <option value='secondStates' >250-500</option>
        <option value='thirdStates' >500-1000</option>
        <option value='fourthStates' >1000+</option>
      </select>
-     <h1>{applyColor}</h1>
    </div>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="959" stroke={'#FFFFFF'} height="593" fill={'#aad2fd'} >
